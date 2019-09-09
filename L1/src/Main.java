@@ -12,7 +12,7 @@ public class Main {
             k = in.nextInt();
             System.out.println("Input x: ");
             x = in.nextDouble();
-            System.out.printf("Sinh(%f) using Taylor series: %f \nSinh(%f) using Math: %f", x,
+            System.out.printf("Sinh(%f) using Taylor series: %.3f \nSinh(%f) using Math: %.3f", x,
                     SinhTaylorSeries.calculation(k, x), x, Math.sinh(x));
         }
         catch (Throwable ex) {
