@@ -7,7 +7,7 @@ public class SinhTaylorSeries  {
             result += member;
             member = Math.pow(x, i) / factorial(i);
             i += 2;
-        } while(Math.pow(10, -k) <= Math.abs(member));
+        } while((Math.pow(10, -k) <= Math.abs(member)) && (i <= 20));
         return result;
     }
 

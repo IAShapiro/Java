@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
-public class Functional {
+public class Menu {
     public static void functional(int choice) {
         switch(choice) {
             case(1):
-                func1();
+                func1Fact();
                 break;
             case(2):
-                func2();
+                func2Reverse();
                 break;
             case(3):
-                func3();
+                func3Substr();
                 break;
             case(0):
                 System.exit(0);
@@ -20,14 +20,14 @@ public class Functional {
         }
     }
 
-    private static void func1() {
+    private static void func1Fact() {
         Scanner in = new Scanner(System.in);
-        System.out.print("To calculate n!, enter the value of n: ");
+        System.out.print("To calculate n!, enter the value of n (n <= 20): ");
         int n = in.nextInt();
-        System.out.println(n + "!=" + factorial(n));
+        System.out.println((((n > 20) || (n < 0)) ? "Incorrect input\n" : (n + "!=" + factorial(n))));
     }//TODO: Limit n
 
-    private static void func2() {
+    private static void func2Reverse() {
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
         String str = in.nextLine();
@@ -35,7 +35,7 @@ public class Functional {
         System.out.println("Reversed string: " + reversedStr);
     }
 
-    private static void func3(){
+    private static void func3Substr(){
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
         String str = in.nextLine();
