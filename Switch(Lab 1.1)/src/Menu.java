@@ -25,7 +25,7 @@ public class Menu {
         System.out.print("To calculate n!, enter the value of n (n <= 20): ");
         int n = in.nextInt();
         System.out.println((((n > 20) || (n < 0)) ? "Incorrect input\n" : (n + "!=" + factorial(n))));
-    }//TODO: Limit n
+    }
 
     private static void func2Reverse() {
         Scanner in = new Scanner(System.in);

@@ -14,9 +14,9 @@ public class Main {
                 System.out.print("Press 'Enter' to continue\n");
                 in.nextLine();
                 in.nextLine();
-            }//TODO:Exceptions
+            }
         }
-        catch (Throwable ex) {
+        catch (Exception ex) {
             System.out.println("Error!\n");
             System.exit(1);
         }

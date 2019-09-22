@@ -15,9 +15,9 @@ public class Main {
             System.out.printf("Sinh(%f) using Taylor series: %.3f \nSinh(%f) using Math: %.3f", x,
                     SinhTaylorSeries.calculation(k, x), x, Math.sinh(x));
         }
-        catch (Throwable ex) {
+        catch (Exception ex) {
             System.out.println("Input/output error!\n");
-            return;
+            System.exit(1);
         }
     }
 }
