@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Map;
 
 public class Student implements Comparable<Student> {
     public String name;
@@ -17,9 +18,12 @@ public class Student implements Comparable<Student> {
         int sum = 0;
         int count = 0;
         for (Session session: this.sessions) {
-           //?????????
+           for (Map.Entry<Subjects, Integer> subject : session.subjects.entrySet()){
+               sum += subject.getValue();
+               count++;
+           }
         }
-        return sum * 1. / count;
+        return (double) sum / count;
     }
 
 
