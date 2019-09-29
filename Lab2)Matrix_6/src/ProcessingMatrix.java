@@ -25,6 +25,8 @@ public class ProcessingMatrix {
                 System.out.print(j + " ");
             }
         }
+
+        System.out.println();
     }
 
 }
