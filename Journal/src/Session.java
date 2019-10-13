@@ -1,9 +1,9 @@
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-public class Session {
-    Map<Subjects, Integer> session = new HashMap<>();
+public class Session implements Serializable {
+    public Map<Subjects, Integer> session = new HashMap<>();
 
     public Pair<Integer, Integer> getStatistics() {
         int sum = 0;
@@ -12,14 +12,13 @@ public class Session {
             sum += session.get(subject);
             count++;
         }
-        return new Pair<Integer, Integer>(sum, count);
+        return new Pair<>(sum, count);
     }
 
-    public double sessionAverage() {
+    public double sessionAverage() {//после вопроса про итератор можно удалить?
         Pair<Integer, Integer> statics = this.getStatistics();
-        return (double)statics.first / statics.second;
+        return (double) statics.first / statics.second;
     }
-
 }
 
 enum Subjects{

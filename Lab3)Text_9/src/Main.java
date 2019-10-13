@@ -6,24 +6,29 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String str;
 
-        System.out.println("Input lines: ");
-	    do {
-            str = in.nextLine();
-            str = str.toLowerCase();
+        try {
+            System.out.println("Input lines: ");
+            do {
+                str = in.nextLine();
+                str = str.toLowerCase();
 
-            for (int i = 0; i < str.length(); i++) {
-                if ('a' <= str.charAt(i) && str.charAt(i) <= 'z'){
-                    alph[str.charAt(i) - 'a']++;
+                for (int i = 0; i < str.length(); i++) {
+                    if ('a' <= str.charAt(i) && str.charAt(i) <= 'z'){
+                        alph[str.charAt(i) - 'a']++;
+                    }
+                }
+            } while (!str.equals(""));
+
+            System.out.print("Searched letters: ");
+            for (int i = 0; i < alph.length; i++) {
+                if (alph[i] != 0) {
+                    System.out.print((char)(i + 'a') + " ");
                 }
             }
-        } while (!str.equals(""));
-
-	    System.out.print("Searched letters: ");
-        for (int i = 0; i < alph.length; i++) {
-            if (alph[i] != 0) {
-                System.out.print((char)(i + 'a') + " ");
-            }
         }
-
+        catch (Exception ex) {
+            System.out.println("Input/output error!\n");
+            System.exit(1);
+        }
     }
 }
