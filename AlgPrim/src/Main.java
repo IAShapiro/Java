@@ -7,6 +7,7 @@ public class Main {
 
         Scanner in = new Scanner(new File("input.txt"));
         int numbVertex = in.nextInt();
+        int numbEdges = in.nextInt();
 
         boolean[] used = new boolean[numbVertex];
 
@@ -16,7 +17,7 @@ public class Main {
             edgesList.add(new ArrayList<Edge>());
         }
 
-        while (in.hasNextInt()) {
+        for(int i = 0; i < numbEdges; i++) {
             int vertex1 = in.nextInt();
             int vertex2 = in.nextInt();
             int weight = in.nextInt();
@@ -40,6 +41,15 @@ public class Main {
             System.out.println("Spanning subgraph does not exist");
         }
         else {
+            minSubTree.sort((o1, o2) -> {
+                if (o1.vertex1 == o2.vertex1) {
+                    return Integer.compare(o1.vertex2, o2.vertex2);
+                }
+                else {
+                    return Integer.compare(o1.vertex1, o2.vertex1);
+                }
+            });
+
             int sumWeight = 0;
             for (Edge edge : minSubTree) {
                 sumWeight += edge.weight;
