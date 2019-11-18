@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Notation {
-    public static String calculate (String in) throws Exception {
+    public static String toPolish(String in) throws Exception {
         Stack<Character> operator = new Stack<>();
 
         String out = "";
@@ -14,6 +14,7 @@ public class Notation {
         Pattern pattern = Pattern.compile("(\\( - )");
         Matcher matcher = pattern.matcher(in);
         in = matcher.replaceAll("( 0 - ");
+        int counterBreckets = 1;
 
         Scanner strTok = new Scanner(in);
         String tmp;
@@ -27,8 +28,13 @@ public class Notation {
             }
             else if (tmp.charAt(0) == '(') {
                 operator.push('(');
+                counterBreckets++;
             }
             else if (tmp.charAt(0) == ')') {
+                counterBreckets--;
+                if (counterBreckets < 0) {
+                    throw (new Exception ("Invalid input\n"));
+                }
                 while (operator.peek() != '(') {
                     out += operator.pop() + " ";
                 }
@@ -40,6 +46,10 @@ public class Notation {
                 }
                 operator.push(tmp.charAt(0));
             }
+        }
+
+        if (counterBreckets != 0) {
+            throw (new Exception ("Invalid input\n"));
         }
 
         while (!operator.empty()) {
@@ -95,4 +105,6 @@ public class Notation {
 
         return out;
     }
+
+
 }
