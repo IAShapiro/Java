@@ -1,0 +1,4 @@
+int name[] = {1, 2, 3, 6}; - 48
+int []name = {1, 2, 4, 3, 6}; - 48
+int[][][]name = new int[4][5][2]; - 960
+int name[][] = new int[3][4]; - 176
