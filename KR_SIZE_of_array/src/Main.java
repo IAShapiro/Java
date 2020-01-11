@@ -15,28 +15,23 @@ public class Main {
         String output = "";
         String tmp;
         while (in.hasNextLine()) {
-//*_______________________Слишком поздно решил уточнить про пробелы. Работает только для строк формата тип_(несколько пробелов)_(между скобками и именем пробелов нет)
+
             tmp = in.nextLine();
             String tmpLine = tmp;
 
             String[] mas = tmpLine.split("=");
 
-           // int counter = 0;
-
             Pattern pattern = Pattern.compile("\\[]");
             Matcher matcher = pattern.matcher(mas[0]);
-          //  while(matcher.find()) {
-          //      counter++;
-          //  }
+
             mas[0] = matcher.replaceAll(" ");
 
             Scanner parser = new Scanner(mas[0]);
             String tmp_type = parser.next();
-            //String tmp_name = parser.next();
 
             parser = new Scanner(mas[1]);
 
-            ArrayList array_of_size = new ArrayList();
+            List array_of_size = new ArrayList();
 
             if ("new".equals(parser.next())) {
 
